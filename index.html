@@ -742,6 +742,16 @@
     .btn-primary, .btn-secondary { font-size: 14px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
   }
+  .error-msg {
+  color: #ff4d6d;
+  font-size: 12px;
+  margin-top: 6px;
+  display: none;
+}
+.form-group input.error,
+.form-group select.error {
+  border-color: #ff4d6d;
+}
 </style>
 </head>
 <body>
@@ -1055,8 +1065,35 @@
   }
 
   function handleSubmit() {
-    window.location.href = "thankyou.html";
-  }
+  let valid = true;
+
+  const fields = [
+    { el: document.querySelector('input[placeholder="e.g. Ananya"]'), msg: "Please enter your child's name." },
+    { el: document.querySelector('input[placeholder="e.g. 9 yrs / Class 4"]'), msg: "Please enter your child's age." },
+    { el: document.querySelector('input[placeholder="+91 98765 43210"]'), msg: "Please enter your WhatsApp number." },
+    { el: document.querySelectorAll('select')[0], msg: "Please select a preferred batch." },
+  ];
+
+  fields.forEach(field => {
+    let errEl = field.el.parentNode.querySelector('.error-msg');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.className = 'error-msg';
+      field.el.parentNode.appendChild(errEl);
+    }
+    if (!field.el.value.trim()) {
+      field.el.classList.add('error');
+      errEl.textContent = field.msg;
+      errEl.style.display = 'block';
+      valid = false;
+    } else {
+      field.el.classList.remove('error');
+      errEl.style.display = 'none';
+    }
+  });
+
+  if (valid) window.location.href = "thankyou.html";
+}
 </script>
 </body>
 </html>

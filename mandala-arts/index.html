@@ -742,6 +742,16 @@
     .btn-primary, .btn-secondary { font-size: 14px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); }
   }
+    .error-msg {
+      color: #ff4d6d;
+      font-size: 12px;
+      margin-top: 6px;
+      display: none;
+}
+  .form-group input.error,
+.form-group select.error {
+  border-color: #ff4d6d;
+}
 </style>
 </head>
 <body>
@@ -1345,34 +1355,36 @@
     if (!isOpen) el.classList.add('open');
   }
 
-  function handleSubmit() {
-    const name  = document.getElementById('f-name').value.trim();
-    const age   = document.getElementById('f-age').value.trim();
-    const phone = document.getElementById('f-phone').value.trim();
-    const style = document.getElementById('f-style').value;
+ function handleSubmit() {
+  let valid = true;
 
-    if (!name) {
-      alert("Please enter your name.");
-      document.getElementById('f-name').focus();
-      return;
+  const fields = [
+    { el: document.querySelector('input[placeholder="e.g. Priya Sharma"]'), msg: "Please enter your name." },
+    { el: document.querySelector('input[placeholder="e.g. 14"]'), msg: "Please enter your age." },
+    { el: document.querySelector('input[placeholder="+91 98765 43210"]'), msg: "Please enter your WhatsApp number." },
+    { el: document.querySelectorAll('select')[0], msg: "Please select a dance style." },
+  ];
+
+  fields.forEach(field => {
+    let errEl = field.el.parentNode.querySelector('.error-msg');
+    if (!errEl) {
+      errEl = document.createElement('p');
+      errEl.className = 'error-msg';
+      field.el.parentNode.appendChild(errEl);
     }
-    if (!age) {
-      alert("Please enter your age.");
-      document.getElementById('f-age').focus();
-      return;
+    if (!field.el.value.trim()) {
+      field.el.classList.add('error');
+      errEl.textContent = field.msg;
+      errEl.style.display = 'block';
+      valid = false;
+    } else {
+      field.el.classList.remove('error');
+      errEl.style.display = 'none';
     }
-    if (!phone || phone.replace(/\D/g,'').length < 10) {
-      alert("Please enter a valid WhatsApp number.");
-      document.getElementById('f-phone').focus();
-      return;
-    }
-    if (!style) {
-      alert("Please select an art style you're interested in.");
-      document.getElementById('f-style').focus();
-      return;
-    }
-    window.location.href = 'thankyou.html';
-  }
+  });
+
+  if (valid) window.location.href = "thankyou.html";
+}
 </script>
 </body>
 </html>

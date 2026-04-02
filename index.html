@@ -989,7 +989,7 @@
           <option>Not Sure / Mixed Batch</option>
         </select>
       </div>
-      <button class="form-submit" onclick="handleSubmit(gtag('event', 'form_submission', {'event_category': 'Summer Camp','event_label': 'Registration Form','transport_type': 'beacon'});)">Book My Free Trial Class</button>
+      <button class="form-submit" onclick="handleSubmit()">Book My Free Trial Class</button>
       <p class="form-note">Your information is private &amp; secure. We'll call you within 24 hours.</p>
     </div>
   </div>
@@ -1077,14 +1077,12 @@
 
   function handleSubmit() {
   let valid = true;
-
   const fields = [
     { el: document.querySelector('input[placeholder="e.g. Priya Sharma"]'), msg: "Please enter your name." },
     { el: document.querySelector('input[placeholder="e.g. 14"]'), msg: "Please enter your age." },
     { el: document.querySelector('input[placeholder="+91 98765 43210"]'), msg: "Please enter your WhatsApp number." },
     { el: document.querySelectorAll('select')[0], msg: "Please select a dance style." },
   ];
-
   fields.forEach(field => {
     let errEl = field.el.parentNode.querySelector('.error-msg');
     if (!errEl) {
@@ -1102,8 +1100,14 @@
       errEl.style.display = 'none';
     }
   });
-
-  if (valid) window.location.href = "thankyou.html";
+  if (valid) {
+    gtag('event', 'form_submission', {
+      'event_category': 'Summer Camp',
+      'event_label': 'Registration Form',
+      'transport_type': 'beacon'
+    });
+    window.location.href = "thankyou.html";
+  }
 }
 </script>
 </body>

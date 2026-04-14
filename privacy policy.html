@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy | One Billion Deepti Dance Class</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #E8B84B;
+    --deep: #1A0A2E;
+    --magenta: #C2185B;
+    --coral: #FF6B6B;
+    --cream: #FFF8F0;
+    --text: #2D1B4E;
+    --accent: #FF4081;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    background: var(--deep);
+    padding: 24px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo {
+    font-family: 'Dancing Script', cursive;
+    font-size: 24px;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .back-link {
+    font-size: 14px;
+    color: rgba(255,255,255,0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--gold); }
+
+  /* ── HERO STRIP ── */
+  .hero-strip {
+    background: linear-gradient(135deg, var(--deep), #2d1060);
+    padding: 60px 5%;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-strip::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse at 30% 50%, rgba(194,24,91,0.2), transparent 60%),
+      radial-gradient(ellipse at 70% 50%, rgba(232,184,75,0.12), transparent 55%);
+  }
+  .hero-strip h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 12px;
+  }
+  .hero-strip h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-strip p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.5);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 60px 5%;
+  }
+
+  .section {
+    margin-bottom: 44px;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--magenta);
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+
+  .section h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--deep);
+    margin-bottom: 14px;
+  }
+
+  .section p {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4a3660;
+    margin-bottom: 12px;
+  }
+
+  .section ul {
+    list-style: none;
+    margin: 12px 0;
+  }
+
+  .section ul li {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #4a3660;
+    padding: 6px 0;
+    padding-left: 20px;
+    position: relative;
+  }
+
+  .section ul li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 14px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--magenta);
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: rgba(194,24,91,0.1);
+    margin: 44px 0;
+  }
+
+  .highlight-box {
+    background: #fff;
+    border: 1px solid rgba(194,24,91,0.15);
+    border-left: 4px solid var(--magenta);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 20px 0;
+  }
+
+  .highlight-box p {
+    margin-bottom: 0;
+    font-size: 14px;
+  }
+
+  /* ── CONTACT CARD ── */
+  .contact-card {
+    background: var(--deep);
+    border-radius: 20px;
+    padding: 36px;
+    text-align: center;
+    margin-top: 48px;
+  }
+  .contact-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+  }
+  .contact-card p {
+    color: rgba(255,255,255,0.6);
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  .contact-card a {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--magenta), var(--accent));
+    color: #fff;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+  }
+  .contact-card a:hover { opacity: 0.85; }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: #120820;
+    padding: 24px 5%;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255,255,255,0.35);
+  }
+  .footer a {
+    color: var(--gold);
+    text-decoration: none;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 480px) {
+    .content { padding: 40px 20px; }
+    .hero-strip { padding: 40px 20px; }
+    .contact-card { padding: 24px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <a href="index.html" class="logo">Deepti Dance Academy</a>
+  <a href="index.html" class="back-link">Back to Home</a>
+</div>
+
+<!-- HERO STRIP -->
+<div class="hero-strip">
+  <h1>Privacy <em>Policy</em></h1>
+  <p>Last updated: April 2026</p>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <div class="section">
+    <p class="section-label">Overview</p>
+    <h2>Our Commitment to Your Privacy</h2>
+    <p>At Deepti Dance Academy (operated by One Billion Deepti Dance Classes), we are committed to protecting the privacy of everyone who interacts with our website and services. This Privacy Policy explains what information we collect, how we use it, and how we keep it safe.</p>
+    <p>By using our website or submitting our registration form, you agree to the practices described in this policy.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">Data Collection</p>
+    <h2>What Information We Collect</h2>
+    <p>We collect information you provide directly through our registration form:</p>
+    <ul>
+      <li>Your name</li>
+      <li>Your age</li>
+      <li>Your WhatsApp phone number</li>
+      <li>Your dance style preference</li>
+    </ul>
+    <p>We do not collect any payment information, passwords, or sensitive personal data.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">How We Use It</p>
+    <h2>How We Use Your Information</h2>
+    <p>The information you provide is used solely for the following purposes:</p>
+    <ul>
+      <li>To contact you on WhatsApp and confirm your free trial class</li>
+      <li>To place you in the correct batch based on your age and dance preference</li>
+      <li>To send you relevant information about the Summer Dance Camp 2026</li>
+    </ul>
+    <p>We do not sell, rent, or share your personal information with any third parties for marketing purposes.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">WhatsApp</p>
+    <h2>WhatsApp Communication</h2>
+    <p>When you click the "Have Questions?" button or submit the registration form, you may be redirected to WhatsApp. Any communication that takes place on WhatsApp is governed by WhatsApp's own Privacy Policy. We only use WhatsApp to respond to your enquiries and confirm your registration.</p>
+
+    <div class="highlight-box">
+      <p>We will never initiate unsolicited marketing messages on WhatsApp. We only contact you in response to your registration or enquiry.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">Advertising</p>
+    <h2>Google Ads Tracking & Cookies</h2>
+    <p>Our website uses Google Ads to reach potential students. As part of this, Google may place cookies on your device to:</p>
+    <ul>
+      <li>Track whether you visited our website after clicking one of our ads</li>
+      <li>Measure the effectiveness of our advertising campaigns</li>
+      <li>Show relevant ads to users who have previously visited our website</li>
+    </ul>
+    <p>These cookies are managed by Google and are subject to Google's Privacy Policy. You can opt out of Google's use of cookies by visiting <a href="https://adssettings.google.com" target="_blank" style="color:var(--magenta); font-weight:600;">Google Ads Settings</a>.</p>
+
+    <div class="highlight-box">
+      <p>We do not have access to or control over cookies placed by Google. We only use the aggregate data Google provides to improve our advertising.</p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">Data Storage</p>
+    <h2>How We Store Your Data</h2>
+    <p>The information submitted through our registration form is received directly via WhatsApp and stored securely by our team. We do not use any third-party CRM or database to store your information.</p>
+    <p>We retain your information only for as long as necessary to provide our services. You may request deletion of your data at any time by contacting us.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">Your Rights</p>
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Request access to the personal data we hold about you</li>
+      <li>Request correction of any inaccurate information</li>
+      <li>Request deletion of your personal data</li>
+      <li>Withdraw your consent to be contacted at any time</li>
+    </ul>
+    <p>To exercise any of these rights, please contact us on WhatsApp or via the details below.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section">
+    <p class="section-label">Updates</p>
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. Any changes will be reflected on this page with an updated date. We encourage you to review this page periodically.</p>
+  </div>
+
+  <!-- CONTACT CARD -->
+  <div class="contact-card">
+    <h3>Questions About Your Privacy?</h3>
+    <p>Reach out to us directly on WhatsApp and we'll respond within 24 hours.</p>
+    <a href="https://wa.me/910000000000?text=Hi!%20I%20have%20a%20question%20about%20the%20Privacy%20Policy." target="_blank">Contact Us on WhatsApp</a>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>© 2026 One Billion Deepti Dance Classes · All rights reserved · <a href="index.html">Back to Home</a></p>
+</div>
+
+</body>
+</html>
